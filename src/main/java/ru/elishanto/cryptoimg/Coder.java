@@ -1,5 +1,6 @@
 package ru.elishanto.cryptoimg;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import static ru.elishanto.cryptoimg.util.ArrayUtils.getLength;
@@ -17,8 +18,8 @@ public class Coder {
         return result.toString();
     }
 
-    public static ArrayList<String> encode(String text) {
-        byte[] bytes = text.replaceAll("[а-яА-Я]","*").getBytes();
+    public static ArrayList<String> encode(String text) throws UnsupportedEncodingException {
+        byte[] bytes = text.replaceAll("[а-яА-Я]","").getBytes("UTF-8");
         ArrayList<String> result = new ArrayList<>();
         for (byte b : bytes)
         {

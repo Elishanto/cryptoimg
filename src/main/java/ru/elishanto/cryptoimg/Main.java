@@ -17,7 +17,7 @@ public class Main {
                         System.out.println((double) took / 1000 + " seconds");
                         break;
                     default:
-                        took = utils.crypto(args[2], new File(args[3]));
+                        took = utils.crypto(args[1], new File(args[2]));
                         System.out.println((double) took / 1000 + " seconds");
                         break;
                 }

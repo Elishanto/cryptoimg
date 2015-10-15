@@ -1,6 +1,7 @@
 package ru.elishanto.cryptoimg;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +11,7 @@ import static ru.elishanto.cryptoimg.util.ArrayUtils.*;
 
 
 public class Crypter {
-    public static BufferedImage encrypt(String text) {
+    public static BufferedImage encrypt(String text) throws IOException {
         ArrayList<String> encoded = encode(text);
         for (int i = 0; i < encoded.size(); i++) {
             while (encoded.get(i).length() < 8)
@@ -40,6 +41,9 @@ public class Crypter {
         }
         String result = decode(new ArrayList<>(
                 Arrays.asList(data.toString().split("(?<=\\G........)"))));
-        return result.substring(3, result.length()-1);
+        if(result.length() > 3)
+            return result.substring(3, result.length()-1);
+        else
+            return result.substring(0, result.length()-1);
     }
 }
