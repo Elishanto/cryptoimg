@@ -1,13 +1,13 @@
 package ru.elishanto.cryptoimg;
 
+import ru.elishanto.cryptoimg.exception.InvalidSizeException;
 import ru.elishanto.cryptoimg.util.CryptoImgUtils;
 
 import java.io.*;
-import static ru.elishanto.cryptoimg.util.CryptoImgUtils.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        CryptoImgUtils utils = new CryptoImgUtils(Extension.FAST);
+    public static void main(String[] args) throws IOException, InvalidSizeException {
+        CryptoImgUtils utils = new CryptoImgUtils();
         long took;
         switch (args[0]) {
             case "-c":
