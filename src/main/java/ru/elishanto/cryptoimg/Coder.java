@@ -18,7 +18,7 @@ public class Coder {
     }
 
     public static ArrayList<String> encode(String text) {
-        byte[] bytes = text.replaceAll("[^\\x00-\\x7F]+","*").getBytes();
+        byte[] bytes = text.replaceAll("[а-яА-Я]","*").getBytes();
         ArrayList<String> result = new ArrayList<>();
         for (byte b : bytes)
         {

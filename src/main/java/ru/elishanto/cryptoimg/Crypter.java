@@ -1,6 +1,7 @@
 package ru.elishanto.cryptoimg;
 
 import java.awt.image.BufferedImage;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -29,7 +30,7 @@ public class Crypter {
         return image;
     }
 
-    public static String decrypt(BufferedImage image) {
+    public static String decrypt(BufferedImage image) throws UnsupportedEncodingException {
         StringBuilder data = new StringBuilder();
         for (int i = 0; i < image.getWidth(); i++) {
             if(image.getRGB(i, 0) == -1)
